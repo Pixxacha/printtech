@@ -1,12 +1,237 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Blog</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRINTTECH | LED UV System</title>
+<meta name="description" content="ระบบ LED UV ที่ให้การพิมพ์ที่ปลอดภัยและสดใส เหมาะสำหรับธุรกิจที่ต้องการประหยัดเวลาและพลังงาน">
+<meta name="theme-color" content="#0075C1">
+<meta property="og:title" content="PRINTTECH">
+<meta property="og:description" content="less time | less fume | less heat">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://printtech-leduv.com/">
+<meta property="og:image" content="https://img1.wsimg.com/isteam/ip/81960336-3dee-455b-8984-07d8ec07b61e/DSCF1600.JPG">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#06284A; --brand:#0075C1; --uv:#7A4DE0; --paper:#F4F8FB; --card:#fff;
+  --text:#14283D; --muted:#51657A; --line:#D5E0EA;
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#0A1624; --card:#0F2034; --text:#E6EEF6; --muted:#9DB2C6; --line:#21374E}
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:400 18px/1.7 Sarabun,system-ui,sans-serif;color:var(--text);background:var(--paper)}
+h1,h2,h3{font-family:Prompt,Sarabun,sans-serif;line-height:1.2;font-weight:600}
+a{color:var(--brand)}
+:focus-visible{outline:3px solid var(--uv);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+
+/* header */
+header{position:sticky;top:0;z-index:5;background:var(--ink);color:#fff}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:700 22px Prompt,sans-serif;letter-spacing:.04em;color:#fff;text-decoration:none}
+nav a{color:#CFE3F5;text-decoration:none;margin-left:24px;font-size:16px}
+nav a:hover{color:#fff}
+
+/* hero: wet ink strip cured by a moving LED UV beam */
+.hero{background:var(--ink);color:#fff;padding:96px 0 0}
+.hero p.tag{color:#9CC8EC;font-size:20px}
+.hero h1{font-size:clamp(44px,8vw,88px);margin:12px 0 28px}
+.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font:600 17px Prompt,sans-serif;padding:14px 28px;border-radius:6px;border:0;cursor:pointer}
+.btn:hover{background:#0A86DB}
+.cure{position:relative;height:96px;margin-top:72px;overflow:hidden;background:#0B3A66}
+.cure::before{content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,#00A3E0 0 120px,#E6007E 120px 240px,#FFD500 240px 360px,#1A1A1A 360px 480px);
+  filter:saturate(1.1)}
+.cure .wet{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0) 55%);animation:dry 6s linear infinite}
+.cure .beam{position:absolute;top:0;bottom:0;width:70px;left:-70px;
+  background:linear-gradient(90deg,transparent,var(--uv) 50%,transparent);
+  box-shadow:0 0 50px 24px rgba(122,77,224,.55);animation:sweep 6s linear infinite}
+@keyframes sweep{to{left:100%}}
+@keyframes dry{0%,8%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 0 0 100%)}}
+@media (prefers-reduced-motion:reduce){.cure .beam,.cure .wet{animation:none}.cure .wet{display:none}}
+
+/* intro */
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.intro img{width:100%;border-radius:8px;display:block;background:var(--line);aspect-ratio:1/1;object-fit:cover}
+.kicker{color:var(--brand);font:600 17px Prompt,sans-serif;margin-bottom:8px}
+h2{font-size:clamp(28px,4vw,40px);margin-bottom:20px}
+.intro p+p{margin-top:16px}
+h3{font-size:21px;margin:28px 0 8px}
+
+/* numbers */
+.facts{background:var(--ink);color:#fff}
+.facts ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.facts li{border-left:3px solid var(--uv);padding-left:18px}
+.facts b{display:block;font:700 40px/1.1 Prompt,sans-serif}
+.facts span{color:#B9D3EA;font-size:16px}
+
+/* configs */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:0;overflow:hidden}
+.item .ph{aspect-ratio:4/3;background:var(--line);display:grid;place-items:center;color:var(--muted);font-size:14px}
+.item img{width:100%;height:100%;object-fit:cover;display:block}
+.item div.t{padding:20px 22px 24px}
+.item h3{margin:0 0 8px;font-size:19px}
+.item p{font-size:16px;color:var(--muted);line-height:1.6}
+
+/* specs */
+table{width:100%;border-collapse:collapse;background:var(--card);margin-top:28px}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line)}
+th{width:34%;font-weight:600;font-family:Prompt,sans-serif;font-size:16px}
+.table-wrap{overflow-x:auto}
+
+/* customers */
+.logos{display:flex;flex-wrap:wrap;gap:20px;margin-top:28px}
+.logos div{flex:1 1 160px;height:90px;border:1px dashed var(--line);border-radius:8px;display:grid;place-items:center;color:var(--muted);font-size:14px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+form{display:grid;gap:14px}
+label{font:500 15px Prompt,sans-serif}
+input,textarea{width:100%;font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--text)}
+textarea{min-height:120px;resize:vertical}
+address{font-style:normal}
+address p{margin-bottom:10px}
+.hours{margin-top:24px;color:var(--muted);font-size:16px}
+.hp{position:absolute;left:-9999px}
+
+footer{background:var(--ink);color:#9CC0DF;padding:28px 0;font-size:15px}
+
+@media (max-width:820px){
+  section{padding:56px 0}
+  .intro,.contact{grid-template-columns:1fr;gap:32px}
+  .grid{grid-template-columns:1fr}
+  .facts ul{grid-template-columns:1fr 1fr}
+  nav a{margin-left:14px;font-size:15px}
+}
+</style>
 </head>
 <body>
-  <h1>Hello from my blog!</h1>
-  <p>This page is hosted on GitHub Pages.</p>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">PRINTTECH</a>
+    <nav aria-label="หลัก">
+      <a href="#about">LED UV</a>
+      <a href="#config">System</a>
+      <a href="#specs">Specs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <p class="tag">less time | less fume | less heat</p>
+      <h1>LED UV System</h1>
+      <a class="btn" href="#contact">Contact Us</a>
+    </div>
+    <div class="cure" aria-hidden="true"><div class="wet"></div><div class="beam"></div></div>
+  </div>
+
+  <section id="about">
+    <div class="wrap intro">
+      <!-- TODO: download this image into /images and change the path -->
+      <img src="https://img1.wsimg.com/isteam/ip/81960336-3dee-455b-8984-07d8ec07b61e/IMG_3573sq-0001.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25" alt="ชุดหลอด PRINTTECH LED UV บนเครื่องพิมพ์" loading="lazy">
+      <div>
+        <p class="kicker">ระบบ LED UV System คืออะไร</p>
+        <h2>PRINTTECH LED UV SYSTEM</h2>
+        <p>การพิมพ์ที่แห้งด้วยระบบ LED UV สามารถประหยัดพลังงานไฟฟ้าได้มากกว่าระบบ Conventional UV (หลอด Mercury) ที่ใช้กันโดยทั่วไปกว่า 3 เท่า</p>
+        <p>ขณะพิมพ์งานยังไม่เกิดความร้อนที่ทำให้วัสดุพิมพ์เสียหาย และยังไม่สร้าง Ozone ปลอดภัยต่อช่างพิมพ์ และเป็นมิตรต่อสิ่งแวดล้อม</p>
+        <h3>งานพิมพ์ที่ไม่มีติดขัด</h3>
+        <p>เทคนิคการพิมพ์ที่ใช้ LED UV ทำให้งานพิมพ์แห้งทันที สามารถลดเวลาการผลิตงานในขั้นตอนการพิมพ์ลงได้ไม่ต่ำกว่า 30% เทียบกับการพิมพ์หมึก Oil Based เพราะไม่ต้องรอแห้งกลับหลัง และลดมูลค่าความเสียหายจากปัญหางานพิมพ์เลอะหลัง หรือพิมพ์ถอน</p>
+        <p>นอกจากนั้นยังไม่ใช้แป้งพ่นในการพิมพ์ จึงไม่มีฝุ่นแป้งติดผิวงานพิมพ์ เหมาะกับงานพิมพ์คุณภาพสูง อาทิ งานแคตาล็อกระดับพรีเมี่ยม (รถยนต์ จิวเวอรี่ คอสเมติก)</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="facts" style="padding:48px 0">
+    <div class="wrap">
+      <ul>
+        <li><b>3×</b><span>ประหยัดไฟกว่าหลอด Mercury</span></li>
+        <li><b>30%+</b><span>ลดเวลาขั้นตอนการพิมพ์</span></li>
+        <li><b>385 / 395 nm</b><span>เลือกความยาวคลื่นได้</span></li>
+        <li><b>30–110 mm</b><span>ระยะจากชุดหลอดถึง Gripper</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="config">
+    <div class="wrap">
+      <h2>System Configurations</h2>
+      <div class="grid">
+        <!-- Replace each .ph with <img src="images/xxx.jpg" alt="..."> once photos are in /images -->
+        <article class="item"><div class="ph">รูปภาพ</div><div class="t"><h3>เครื่องพิมพ์ Sheetfed Offset หรือ Narrow Web</h3><p>สามารถติดตั้งกับเครื่องพิมพ์เดิมที่ใช้งานอยู่ (โดยปัจจุบันใช้หมึก Oil-Based และต้องการเป็นหมึกที่แห้งด้วยแสง UV) หรือ เครื่องพิมพ์ใหม่</p></div></article>
+        <article class="item"><div class="ph">รูปภาพ</div><div class="t"><h3>หน้าจอควบคุมแบบสัมผัส</h3><p>มีบริเวณ 2 จุด ที่ไดรฟ์เวอร์ และบริเวณโต๊ะควบคุมสี โปรแกรมรองรับภาษาไทย และสามารถกำหนดค่าการเปิด LED UV Lamp ตามความต้องการของช่างพิมพ์ได้อย่างสะดวก</p></div></article>
+        <article class="item"><div class="ph">รูปภาพ</div><div class="t"><h3>ระบบ Optic ของชุดหลอด LED</h3><p>ถูกออกแบบมาให้ติดตั้งโดยมีระยะห่างระหว่างชุดหลอด LED UV ถึง Gripper (กริ๊ปเปอร์) ได้ตั้งแต่ 30 - 110 มม. โดยยังคงความเข้มข้นแสงสูงทำให้งานพิมพ์แห้งสมบูรณ์ แม้พิมพ์ที่ความเร็วสูงสุดของเครื่องพิมพ์</p></div></article>
+        <article class="item"><div class="ph">รูปภาพ</div><div class="t"><h3>ค่าความเข้มแสงสูง</h3><p>สามารถเลือกใช้ได้ใน 2 ช่วงความยาวคลื่นแสงคือ 385nm และ 395nm นอกจากนั้นยังสามารถปรับแต่งระบบสำหรับโรงพิมพ์ตามประเภทงานพิมพ์แบบต่างๆ เช่น หนังสือ บรรจุภัณฑ์กระดาษ พลาสติก หรือ โลหะ</p></div></article>
+        <article class="item"><div class="ph">รูปภาพ</div><div class="t"><h3>โครงสร้างชุดหลอด LED</h3><p>เป็นโลหะผสม มีขนาดเล็ก สามารถติดตั้งได้ในเครื่องพิมพ์ Sheetfed Offset และเครื่องพิมพ์ป้อนม้วน Narrow Web ทุกยี่ห้อ ทั้งจากญี่ปุ่น หรือยุโรป</p></div></article>
+        <article class="item"><div class="ph">รูปภาพ</div><div class="t"><h3>ระบบหล่อเย็น</h3><p>ใช้น้ำเป็นตัวกลางระบบหล่อเย็น ช่วยให้การแผ่กระจายแสง UV มีความสม่ำเสมอ</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="customers" style="padding-top:0">
+    <div class="wrap">
+      <h2>Our Customers</h2>
+      <!-- Replace with <img src="images/customer-name.png" alt="Customer name"> -->
+      <div class="logos"><div>โลโก้ลูกค้า</div><div>โลโก้ลูกค้า</div><div>โลโก้ลูกค้า</div><div>โลโก้ลูกค้า</div></div>
+    </div>
+  </section>
+
+  <section id="specs" style="padding-top:0">
+    <div class="wrap">
+      <h2>LED UV System Specifications</h2>
+      <!-- Only the values from the old site's text are filled in. Add the rest from your spec sheet. -->
+      <div class="table-wrap">
+        <table>
+          <tr><th>ความยาวคลื่น</th><td>385 nm / 395 nm</td></tr>
+          <tr><th>ระยะถึง Gripper</th><td>30 – 110 mm</td></tr>
+          <tr><th>ระบบหล่อเย็น</th><td>น้ำ (Water cooled)</td></tr>
+          <tr><th>เครื่องพิมพ์ที่รองรับ</th><td>Sheetfed Offset และ Narrow Web ทุกยี่ห้อ</td></tr>
+          <tr><th>หน้าจอควบคุม</th><td>ระบบสัมผัส 2 จุด รองรับภาษาไทย</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="background:var(--card)">
+    <div class="wrap contact">
+      <div>
+        <h2>Contact Us</h2>
+        <!-- Create a free form at formspree.io and paste your form ID into action -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div><label for="name">Name</label><input id="name" name="name" autocomplete="name"></div>
+          <div><label for="email">Email *</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+          <div><label for="msg">Message</label><textarea id="msg" name="message"></textarea></div>
+          <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn" type="submit">Send</button>
+        </form>
+      </div>
+      <div>
+        <h3 style="margin-top:0">Printtech Corporation Co.,Ltd.</h3>
+        <address>
+          <p>48 Ratchapruek 25, Talingchun, Bangkok 10170 TH</p>
+          <p><a href="tel:+66818046044">+66 81 804 6044</a><br><a href="tel:+6624320251">+66 2 432 0251</a></p>
+        </address>
+        <div class="hours">
+          <p>Monday – Friday: 9am – 5pm<br>Saturday: By appointment<br>Sunday: Closed</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Copyright © 2019 Printtech LEDUV – All Rights Reserved.</div>
+</footer>
+
 </body>
 </html>

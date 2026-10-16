@@ -4,7 +4,7 @@ th:
     url: /
   - title: ระบบของเรา
     url: /system.html
-  - title: ลูกค้าของเรา
+  - title: ผลงานการติดตั้ง
     url: /customers.html
   - title: ติดต่อเรา
     url: /contact-us.html
@@ -13,7 +13,7 @@ en:
     url: /en/
   - title: Our System
     url: /en/system.html
-  - title: Customers
+  - title: Installations
     url: /en/customers.html
-  - title: Contact
+  - title: Contact Us
     url: /en/contact-us.html

@@ -1,10 +1,16 @@
+{%- assign L = page.lang | default: 'th' -%}
 <header>
   <div class="wrap">
-    <a class="logo" href="{{ '/' | relative_url }}">PRINTTECH</a>
+    <a class="logo" href="{% if L == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">PRINTTECH</a>
     <nav aria-label="Main">
-      {%- for item in site.data.nav %}
-      <a href="{{ item.url | relative_url }}"{% unless item.url contains '#' %}{% if page.url == item.url %} aria-current="page"{% endif %}{% endunless %}>{{ item.title }}</a>
+      {%- for item in site.data.nav[L] %}
+      <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
       {%- endfor %}
+      {%- if L == 'en' %}
+      <a class="lang" href="{{ page.alt_url | default: '/' | relative_url }}" hreflang="th" lang="th">ไทย</a>
+      {%- else %}
+      <a class="lang" href="{{ page.alt_url | default: '/en/' | relative_url }}" hreflang="en" lang="en">EN</a>
+      {%- endif %}
     </nav>
   </div>
 </header>

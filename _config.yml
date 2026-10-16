@@ -3,7 +3,7 @@ description: LED UV System
 
 # Leave empty if you use your own domain (printtech-leduv.com) or a repo named <username>.github.io.
 # If the site lives at https://<username>.github.io/<repo-name>/, set it to "/<repo-name>".
-baseurl: ""
+baseurl: "/printtech"
 
 exclude:
   - README.md

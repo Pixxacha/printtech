@@ -1,10 +1,8 @@
 # The top menu. To add a page, add two lines here.
 - title: Home
   url: /
-- title: System
-  url: /#config
-- title: Specs
-  url: /#specs
+- title: Our System
+  url: /system.html
 - title: Customers
   url: /customers.html
 - title: Contact

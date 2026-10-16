@@ -1,0 +1,11 @@
+# The top menu. To add a page, add two lines here.
+- title: Home
+  url: /
+- title: System
+  url: /#config
+- title: Specs
+  url: /#specs
+- title: Customers
+  url: /customers.html
+- title: Contact
+  url: /contact-us.html

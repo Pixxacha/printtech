@@ -1,0 +1,10 @@
+<header>
+  <div class="wrap">
+    <a class="logo" href="{{ '/' | relative_url }}">PRINTTECH</a>
+    <nav aria-label="Main">
+      {%- for item in site.data.nav %}
+      <a href="{{ item.url | relative_url }}"{% unless item.url contains '#' %}{% if page.url == item.url %} aria-current="page"{% endif %}{% endunless %}>{{ item.title }}</a>
+      {%- endfor %}
+    </nav>
+  </div>
+</header>

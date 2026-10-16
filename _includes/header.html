@@ -4,21 +4,34 @@
 {%- assign L = page.lang | default: 'th' -%}
 <header>
   <div class="wrap">
+    <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="{% if L == 'en' %}Menu{% else %}เมนู{% endif %}">
+      <span></span><span></span><span></span>
+    </button>
     <a class="logo" href="{% if L == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">
       <picture>
         <source media="(max-width:600px)" srcset="{{ logo_small | relative_url }}">
         <img src="{{ logo_full | relative_url }}" alt="PRINTTECH" height="34">
       </picture>
     </a>
-    <nav aria-label="Main">
+    <nav id="main-nav" aria-label="Main">
       {%- for item in site.data.nav[L] %}
       <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
       {%- endfor %}
-      {%- if L == 'en' %}
-      <a class="lang" href="{{ page.alt_url | default: '/' | relative_url }}" hreflang="th" lang="th">ไทย</a>
-      {%- else %}
-      <a class="lang" href="{{ page.alt_url | default: '/en/' | relative_url }}" hreflang="en" lang="en">EN</a>
-      {%- endif %}
     </nav>
+    {%- if L == 'en' %}
+    <a class="lang" href="{{ page.alt_url | default: '/' | relative_url }}" hreflang="th" lang="th">ไทย</a>
+    {%- else %}
+    <a class="lang" href="{{ page.alt_url | default: '/en/' | relative_url }}" hreflang="en" lang="en">EN</a>
+    {%- endif %}
   </div>
 </header>
+<script>
+(function(){
+  var h=document.currentScript.previousElementSibling,b=h.querySelector('.menu-toggle');
+  function set(open){h.classList.toggle('open',open);b.setAttribute('aria-expanded',open)}
+  b.addEventListener('click',function(){set(!h.classList.contains('open'))});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&h.classList.contains('open')){set(false);b.focus()}});
+  document.addEventListener('click',function(e){if(!h.contains(e.target))set(false)});
+  matchMedia('(min-width:821px)').addEventListener('change',function(e){if(e.matches)set(false)});
+})();
+</script>

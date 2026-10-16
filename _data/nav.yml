@@ -1,9 +1,19 @@
-# The top menu. To add a page, add two lines here.
-- title: Home
-  url: /
-- title: Our System
-  url: /system.html
-- title: Customers
-  url: /customers.html
-- title: Contact
-  url: /contact-us.html
+# The top menu, one list per language. To add a page, add two lines to each list.
+th:
+  - title: หน้าแรก
+    url: /
+  - title: ระบบของเรา
+    url: /system.html
+  - title: ลูกค้าของเรา
+    url: /customers.html
+  - title: ติดต่อเรา
+    url: /contact-us.html
+en:
+  - title: Home
+    url: /en/
+  - title: Our System
+    url: /en/system.html
+  - title: Customers
+    url: /en/customers.html
+  - title: Contact
+    url: /en/contact-us.html

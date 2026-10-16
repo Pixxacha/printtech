@@ -1,67 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Our Customers | PRINTTECH</title>
-<meta name="description" content="Commercial printers using PRINTTECH LED UV systems.">
-<meta name="theme-color" content="#0075C1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#06284A;--brand:#0075C1;--uv:#7A4DE0;--paper:#F4F8FB;--card:#fff;--text:#14283D;--muted:#51657A;--line:#D5E0EA}
-@media (prefers-color-scheme:dark){:root{--paper:#0A1624;--card:#0F2034;--text:#E6EEF6;--muted:#9DB2C6;--line:#21374E}}
-*{box-sizing:border-box;margin:0}
-body{font:400 18px/1.7 Sarabun,system-ui,sans-serif;color:var(--text);background:var(--paper)}
-h1,h2,h3{font-family:Prompt,Sarabun,sans-serif;line-height:1.2;font-weight:600}
-a{color:var(--brand)}
-:focus-visible{outline:3px solid var(--uv);outline-offset:3px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-header{background:var(--ink);color:#fff}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font:700 22px Prompt,sans-serif;letter-spacing:.04em;color:#fff;text-decoration:none}
-nav a{color:#CFE3F5;text-decoration:none;margin-left:24px;font-size:16px}
-nav a:hover,nav a[aria-current]{color:#fff}
-main{padding:72px 0 88px}
-h1{font-size:clamp(34px,5vw,52px);margin-bottom:12px}
-.lead{color:var(--muted);max-width:640px;margin-bottom:44px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
-.photo{aspect-ratio:16/10;background:var(--line);display:grid;place-items:center;color:var(--muted);font-size:14px}
-.photo img{width:100%;height:100%;object-fit:cover;display:block}
-.body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px;flex:1}
-.logo-row{height:44px;display:flex;align-items:center}
-.logo-row img{max-height:44px;max-width:160px;object-fit:contain}
-.card h3{font-size:20px}
-.meta{color:var(--muted);font-size:15px}
-.note{margin-top:6px;font-size:16px}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:12px}
-.tags span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--muted)}
-.cta{margin-top:56px;padding:32px;background:var(--ink);color:#fff;border-radius:8px;display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between}
-.cta h2{font-size:24px}
-.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font:600 17px Prompt,sans-serif;padding:14px 28px;border-radius:6px}
-.btn:hover{background:#0A86DB}
-footer{background:var(--ink);color:#9CC0DF;padding:28px 0;font-size:15px}
-@media (max-width:900px){.grid{grid-template-columns:1fr 1fr}}
-@media (max-width:600px){main{padding:48px 0 64px}.grid{grid-template-columns:1fr}nav a{margin-left:14px;font-size:15px}}
-</style>
-</head>
-<body>
-
-<header>
-  <div class="wrap">
-    <a class="logo" href="index.html">PRINTTECH</a>
-    <nav aria-label="Main">
-      <a href="index.html">Home</a>
-      <a href="index.html#config">System</a>
-      <a href="customers.html" aria-current="page">Customers</a>
-      <a href="contact-us.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main>
+---
+layout: default
+title: "Our Customers | PRINTTECH"
+description: "Commercial printers using PRINTTECH LED UV systems."
+---
+<div class="inner">
   <div class="wrap">
     <h1>Our Customers</h1>
     <p class="lead">Commercial printers across Thailand that run PRINTTECH LED UV on their presses.</p>
@@ -74,11 +16,7 @@ footer{background:var(--ink);color:#9CC0DF;padding:28px 0;font-size:15px}
       <a class="btn" href="contact-us.html">Contact Us</a>
     </div>
   </div>
-</main>
-
-<footer>
-  <div class="wrap">Copyright © 2019 Printtech LEDUV – All Rights Reserved.</div>
-</footer>
+</div>
 
 <script>
 /* ---------------------------------------------------------------
@@ -115,5 +53,3 @@ CUSTOMERS.forEach(c => {
   grid.appendChild(card);
 });
 </script>
-</body>
-</html>

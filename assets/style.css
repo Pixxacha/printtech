@@ -53,13 +53,26 @@ footer{background:var(--ink);color:#9CC0DF;padding:28px 0;font-size:15px}
 @media (max-width:820px){.hero{background:linear-gradient(rgba(6,40,74,.8),rgba(6,40,74,.8)),url("../images/printtech_product.webp") 70% center/cover no-repeat var(--ink)}}
 .hero p.tag{color:#9CC8EC;font-size:20px}
 .hero h1{font-size:clamp(44px,8vw,88px);margin:12px 0 28px}
-.cure{position:relative;height:96px;margin-top:72px;overflow:hidden;background:#0B3A66}
-.cure::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,#00A3E0 0 120px,#E6007E 120px 240px,#FFD500 240px 360px,#1A1A1A 360px 480px);filter:saturate(1.1)}
-.cure .wet{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0) 55%);animation:dry 6s linear infinite}
-.cure .beam{position:absolute;top:0;bottom:0;width:70px;left:-70px;background:linear-gradient(90deg,transparent,var(--uv) 50%,transparent);box-shadow:0 0 50px 24px rgba(122,77,224,.55);animation:sweep 6s linear infinite}
-@keyframes sweep{to{left:100%}}
-@keyframes dry{0%,8%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 0 0 100%)}}
+.cure{position:relative;height:96px;margin-top:72px;overflow:hidden;background:#0B3A66;
+  --stripes:repeating-linear-gradient(90deg,#00A3E0 0 120px,#E6007E 120px 240px,#FFD500 240px 360px,#1A1A1A 360px 480px)}
+/* cured ink (left of the lamp): matte and crisp */
+.cure::before{content:"";position:absolute;inset:0;background:var(--stripes);filter:saturate(.85) brightness(.88)}
+/* wet ink (right of the lamp): glossy and a little soft */
+.cure .wet{position:absolute;inset:0;overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,255,255,.6) 0,rgba(255,255,255,.18) 28%,rgba(255,255,255,0) 50%,rgba(255,255,255,.1) 100%),var(--stripes);
+  filter:saturate(1.25) brightness(1.08) blur(.4px);animation:dry 7s linear infinite}
+/* rippling shine; the #ripple filter is an inline SVG next to .cure in index.html */
+.cure .wet::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.5) 0,rgba(255,255,255,.05) 30%,rgba(255,255,255,0) 55%,rgba(255,255,255,.3) 75%,rgba(255,255,255,0) 90%);filter:url(#ripple)}
+/* LED lamp: solid purple bar with a soft, even glow */
+.cure .beam{position:absolute;top:0;bottom:0;left:0;width:16px;margin-left:-8px;
+  background:linear-gradient(90deg,#5B2FC4,var(--uv) 30%,#B79CFF 50%,var(--uv) 70%,#5B2FC4);
+  box-shadow:0 0 10px 3px rgba(122,77,224,.85),0 0 26px 8px rgba(122,77,224,.45);animation:sweep 7s linear infinite}
+/* lamp and wet edge share one timing so the edge always sits under the light; then a short pause fully cured */
+@keyframes sweep{0%{left:0;opacity:1}80%{left:100%;opacity:1}80.1%,99.9%{left:100%;opacity:0}100%{left:0;opacity:0}}
+@keyframes dry{0%{clip-path:inset(0 0 0 0);opacity:1}80%,92%{clip-path:inset(0 0 0 100%);opacity:1}92.1%{clip-path:inset(0 0 0 0);opacity:0}100%{clip-path:inset(0 0 0 0);opacity:1}}
 @media (prefers-reduced-motion:reduce){.cure .beam,.cure .wet{animation:none}.cure .wet{display:none}}
+.ripple-defs{position:absolute;width:0;height:0}
 
 /* home: intro, facts, configs, specs, logos */
 .intro{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}

@@ -1,57 +1,10 @@
 ---
-layout: default
-title: "Our Customers | PRINTTECH"
-description: "Commercial printers using PRINTTECH LED UV systems."
-lang: th
-alt_url: /en/customers.html
+layout: null
+sitemap: false
 ---
-<div class="inner">
-  <div class="wrap">
-    <h1>Our Customers</h1>
-    <p class="lead">Commercial printers across Thailand that run PRINTTECH LED UV on their presses.</p>
-
-    <div class="grid" id="grid"></div>
-    <noscript><p>Please enable JavaScript to see our customers.</p></noscript>
-
-    <div class="cta">
-      <h2>Want to see it on your press?</h2>
-      <a class="btn" href="contact-us.html">Contact Us</a>
-    </div>
-  </div>
-</div>
-
-<script>
-/* ---------------------------------------------------------------
-   EDIT THIS LIST to add customers. One block per customer.
-   Only "name" is required. Leave a field as "" to hide it.
-   logo / photo: path to a file in your images/ folder, e.g. "images/acme-logo.png"
-   --------------------------------------------------------------- */
-const CUSTOMERS = [
-  { name: "Customer Name 1", logo: "", photo: "", location: "Bangkok", press: "Press brand and model, number of colours", note: "One or two lines about the job, e.g. packaging, catalogues, books.", tags: ["Sheetfed Offset", "Retrofit"] },
-  { name: "Customer Name 2", logo: "", photo: "", location: "Samut Prakan", press: "Press brand and model, number of colours", note: "One or two lines about the job.", tags: ["Narrow Web"] },
-  { name: "Customer Name 3", logo: "", photo: "", location: "", press: "", note: "", tags: [] }
-];
-
-const grid = document.getElementById("grid");
-const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; };
-
-CUSTOMERS.forEach(c => {
-  const card = el("article", "card");
-
-  const photo = el("div", "photo");
-  if (c.photo) { const i = new Image(); i.src = c.photo; i.alt = c.name + " press"; i.loading = "lazy"; photo.appendChild(i); }
-  else photo.textContent = "Photo";
-  card.appendChild(photo);
-
-  const body = el("div", "body");
-  if (c.logo) { const row = el("div", "logo-row"); const i = new Image(); i.src = c.logo; i.alt = c.name + " logo"; row.appendChild(i); body.appendChild(row); }
-  body.appendChild(el("h3", "", c.name));
-  if (c.location) body.appendChild(el("p", "meta", c.location));
-  if (c.press) body.appendChild(el("p", "meta", c.press));
-  if (c.note) body.appendChild(el("p", "note", c.note));
-  if (c.tags && c.tags.length) { const t = el("div", "tags"); c.tags.forEach(x => t.appendChild(el("span", "", x))); body.appendChild(t); }
-  card.appendChild(body);
-
-  grid.appendChild(card);
-});
-</script>
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Redirecting…</title>
+<link rel="canonical" href="{{ '/installations.html' | absolute_url }}">
+<meta http-equiv="refresh" content="0; url={{ '/installations.html' | relative_url }}">
+<meta name="robots" content="noindex"></head>
+<body><a href="{{ '/installations.html' | relative_url }}">This page has moved.</a></body></html>

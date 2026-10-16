@@ -17,9 +17,9 @@ header .wrap{display:flex;align-items:center;height:64px;gap:24px}
 .logo{font:700 22px Prompt,sans-serif;letter-spacing:.04em;color:#fff;text-decoration:none}
 .logo picture,.logo img{display:block}
 .logo img{height:34px;width:auto}
-nav{margin-left:auto;display:flex;gap:24px}
-nav a{color:#CFE3F5;text-decoration:none;font-size:16px}
-nav a:hover,nav a[aria-current]{color:#fff}
+header nav{margin-left:auto;display:flex;gap:24px}
+header nav a{color:#CFE3F5;text-decoration:none;font-size:16px}
+header nav a:hover,header nav a[aria-current]{color:#fff}
 .lang{border:1px solid #5F86AD;border-radius:999px;padding:1px 12px;color:#fff;font-size:15px;text-decoration:none;white-space:nowrap}
 .lang:hover{background:#0B3A66}
 .menu-toggle{display:none;width:44px;height:44px;margin-left:-10px;padding:0;background:none;border:0;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px}
@@ -32,13 +32,17 @@ header.open .menu-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45
   .menu-toggle{display:flex;justify-self:start}
   .logo{justify-self:center}
   .lang{justify-self:end}
-  nav{display:none;position:absolute;top:64px;left:0;right:0;margin:0;flex-direction:column;gap:0;background:var(--ink);border-top:1px solid #0B3A66;box-shadow:0 12px 24px rgba(0,0,0,.25)}
+  header nav{display:none;position:absolute;top:64px;left:0;right:0;margin:0;flex-direction:column;gap:0;background:var(--ink);border-top:1px solid #0B3A66;box-shadow:0 12px 24px rgba(0,0,0,.25)}
   header.open nav{display:flex}
-  nav a{padding:14px 24px;font-size:17px;border-bottom:1px solid #0B3A66}
-  nav a[aria-current]{background:#0B3A66}
+  header nav a{padding:14px 24px;font-size:17px;border-bottom:1px solid #0B3A66}
+  header nav a[aria-current]{background:#0B3A66}
 }
 @media (prefers-reduced-motion:reduce){.menu-toggle span{transition:none}}
 footer{background:var(--ink);color:#9CC0DF;padding:28px 0;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between}
+footer .footer-links{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0}
+footer .footer-links a{color:#CFE3F5;text-decoration:none;font-size:15px}
+footer .footer-links a:hover{color:#fff;text-decoration:underline}
 
 /* shared */
 .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font:600 17px Prompt,sans-serif;padding:14px 28px;border-radius:6px;border:0;cursor:pointer}

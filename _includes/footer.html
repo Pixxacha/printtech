@@ -1,3 +1,11 @@
+{%- assign L = page.lang | default: 'th' -%}
+{%- if L == 'en' %}{% assign p = '/en/' %}{% else %}{% assign p = '/' %}{% endif -%}
 <footer>
-  <div class="wrap">Copyright © 2019 Printtech LEDUV – All Rights Reserved.</div>
+  <div class="wrap">
+    <span>Copyright © 2019 Printtech LEDUV – All Rights Reserved.</span>
+    <nav class="footer-links" aria-label="{% if L == 'en' %}Footer{% else %}ลิงก์ท้ายเว็บ{% endif %}">
+      <a href="{{ p | append: 'careers.html' | relative_url }}">{% if L == 'en' %}Careers{% else %}ร่วมงานกับเรา{% endif %}</a>
+      <a href="{{ p | append: 'privacy.html' | relative_url }}">{% if L == 'en' %}Privacy Policy{% else %}นโยบายความเป็นส่วนตัว{% endif %}</a>
+    </nav>
+  </div>
 </footer>

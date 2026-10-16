@@ -15,6 +15,8 @@ h2{font-size:clamp(28px,4vw,40px);margin-bottom:20px}
 header{position:sticky;top:0;z-index:5;background:var(--ink);color:#fff}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo{font:700 22px Prompt,sans-serif;letter-spacing:.04em;color:#fff;text-decoration:none}
+.logo picture,.logo img{display:block}
+.logo img{height:34px;width:auto}
 nav a{color:#CFE3F5;text-decoration:none;margin-left:24px;font-size:16px}
 nav a:hover,nav a[aria-current]{color:#fff}
 nav a.lang{border:1px solid #5F86AD;border-radius:999px;padding:1px 12px;color:#fff;font-size:15px}

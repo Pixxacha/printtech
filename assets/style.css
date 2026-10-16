@@ -17,6 +17,8 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 .logo{font:700 22px Prompt,sans-serif;letter-spacing:.04em;color:#fff;text-decoration:none}
 nav a{color:#CFE3F5;text-decoration:none;margin-left:24px;font-size:16px}
 nav a:hover,nav a[aria-current]{color:#fff}
+nav a.lang{border:1px solid #5F86AD;border-radius:999px;padding:1px 12px;color:#fff;font-size:15px}
+nav a.lang:hover{background:#0B3A66}
 footer{background:var(--ink);color:#9CC0DF;padding:28px 0;font-size:15px}
 
 /* shared */

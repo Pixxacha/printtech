@@ -2,7 +2,8 @@
 @media (prefers-color-scheme:dark){:root{--paper:#0A1624;--card:#0F2034;--text:#E6EEF6;--muted:#9DB2C6;--line:#21374E}}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{font:400 18px/1.7 Sarabun,system-ui,sans-serif;color:var(--text);background:var(--paper)}
+body{font:400 18px/1.7 Sarabun,system-ui,sans-serif;color:var(--text);background:var(--paper);min-height:100vh;display:flex;flex-direction:column}
+main{flex:1 0 auto}
 h1,h2,h3{font-family:Prompt,Sarabun,sans-serif;line-height:1.2;font-weight:600}
 a{color:var(--brand)}
 :focus-visible{outline:3px solid var(--uv);outline-offset:3px}

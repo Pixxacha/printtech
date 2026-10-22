@@ -112,6 +112,9 @@ label{font:500 15px Prompt,sans-serif;display:block;margin-bottom:4px}
 input,textarea{width:100%;font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--text)}
 textarea{min-height:140px;resize:vertical}
 input[aria-invalid],textarea[aria-invalid]{border-color:#C0392B;box-shadow:0 0 0 1px #C0392B}
+.req{color:#C0392B}
+.form-note{font-size:14px;color:var(--muted);margin-top:-8px}
+@media (prefers-color-scheme:dark){.req{color:#FF8A7A}}
 form .btn{justify-self:start;padding:14px 32px}
 .hp{position:absolute;left:-9999px}
 #status{min-height:1.7em;font-weight:500}

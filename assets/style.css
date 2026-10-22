@@ -111,6 +111,7 @@ form{display:grid;gap:16px}
 label{font:500 15px Prompt,sans-serif;display:block;margin-bottom:4px}
 input,textarea{width:100%;font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--text)}
 textarea{min-height:140px;resize:vertical}
+input[aria-invalid],textarea[aria-invalid]{border-color:#C0392B;box-shadow:0 0 0 1px #C0392B}
 form .btn{justify-self:start;padding:14px 32px}
 .hp{position:absolute;left:-9999px}
 #status{min-height:1.7em;font-weight:500}

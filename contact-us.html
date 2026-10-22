@@ -12,9 +12,11 @@ alt_url: /en/contact-us.html
     <div class="contact">
       <form id="form" novalidate>
         <div><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
+        <div><label for="company">Company</label><input id="company" name="company" autocomplete="organization" required></div>
         <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
-        <div><label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
-        <div><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+        <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
+        <div><label for="machine">Press model you are thinking of upgrading with PRINTTECH LED UV (optional)</label><input id="machine" name="machine" placeholder="e.g. Heidelberg Speedmaster XL 106"></div>
+        <div><label for="message">Message (optional)</label><textarea id="message" name="message"></textarea></div>
         <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn" id="send" type="submit">Send</button>
         <p id="status" role="status" aria-live="polite"></p>
@@ -46,8 +48,14 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const data = new FormData(form);
   if (data.get("website")) return;                       // honeypot: bots fill this in
-  if (!data.get("name").trim() || !data.get("message").trim()) { show("Please enter your name and message.", "err"); return; }
-  if (!/^\S+@\S+\.\S+$/.test(data.get("email"))) { show("Please enter a valid email address.", "err"); return; }
+  const v = (k) => (data.get(k) || "").trim();
+  const problem =
+    !v("name")    ? ["name", "Please enter your name."] :
+    !v("company") ? ["company", "Please enter your company name."] :
+    !/^\S+@\S+\.\S+$/.test(v("email")) ? ["email", "Please enter a valid email address."] :
+    v("phone").replace(/\D/g, "").length < 9 ? ["phone", "Please enter a valid phone number."] : null;
+  form.querySelectorAll("[aria-invalid]").forEach(el => el.removeAttribute("aria-invalid"));
+  if (problem) { const f = document.getElementById(problem[0]); f.setAttribute("aria-invalid", "true"); f.focus(); show(problem[1], "err"); return; }
   if (SCRIPT_URL.startsWith("PASTE_")) { show("The form is not connected yet. Please call us instead.", "err"); return; }
 
   send.disabled = true; show("Sending…");
